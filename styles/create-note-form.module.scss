@@ -1,0 +1,30 @@
+.form-container {
+  min-height: 50vh;
+  width: 100%;
+  padding: 3rem;
+  .keywords-container {
+    div {
+      display: flex;
+      flex-direction: column;
+      input {
+        height: 2rem;
+        max-width: 25vw;
+      }
+      label {
+        padding: 0.2rem;
+      }
+    }
+  }
+
+  .main-note {
+    display: flex;
+    flex-direction: column;
+    label {
+      padding: 0.2rem;
+    }
+    textarea {
+      height: 12rem;
+      width: 70%;
+    }
+  }
+}

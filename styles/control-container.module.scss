@@ -1,0 +1,85 @@
+.control-container {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: 'side-menu main-view';
+  width: 85vw;
+  height: 70vh;
+  padding: 1rem;
+  box-shadow: 0px 2px 34px -1px rgba(133, 133, 133, 0.67);
+  border-radius: 12px;
+  align-items: center;
+  position: relative;
+
+  .create-button {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    border: none;
+    background: #24a0ed;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .save-button {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    border: none;
+    background: #4cbb17;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.side-menu {
+  grid-area: side-menu;
+  border-right: 1px grey solid;
+  height: 90%;
+  width: 11rem;
+
+  ul {
+    list-style: none;
+  }
+
+  .nav-list {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .nav-link {
+      margin: 1.3rem auto;
+      transition: 0.3s;
+
+      &:hover {
+        color: lightgray;
+        text-decoration: underline 2px;
+        text-underline-offset: 0.2em;
+        transition: 0.3s;
+      }
+
+      &__active {
+        margin: 1.3rem auto;
+        color: black;
+        text-decoration: underline 2px;
+        text-underline-offset: 0.2em;
+      }
+    }
+  }
+}
+
+.main-view {
+  grid-area: main-view;
+}

@@ -1,0 +1,28 @@
+import Image from 'next/image'
+import dynamic from 'next/dynamic'
+import styles from 'styles/control-container.module.scss'
+
+import save from 'public/add.svg'
+
+const ReactTooltip = dynamic(() => import('react-tooltip'), {
+  ssr: false
+})
+
+export const SaveButton = ({ handleSaveClick }) => {
+  return (
+    <>
+      <button
+        className={styles['save-button']}
+        aria-label='save new note'
+        data-tip
+        data-for='save-button'
+        onClick={handleSaveClick}
+      >
+        <Image src={save} alt='tick symbol' width={72} height={16}></Image>
+      </button>
+      <ReactTooltip id='save-button' place='top' type='dark' effect='float'>
+        <p>Save the note</p>
+      </ReactTooltip>{' '}
+    </>
+  )
+}
