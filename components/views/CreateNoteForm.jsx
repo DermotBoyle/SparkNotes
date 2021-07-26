@@ -26,7 +26,7 @@ export const CreateNoteForm = ({ transitionStyles, defaultStyle }) => {
   }
 
   const handleSaveClick = async () => {
-    formValues.date = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]')
+    formValues.date = moment(new Date()).format('YYYY-MM-DD-T00:00:00.000Z')
     updateDB(formValues)
   }
 
@@ -95,7 +95,7 @@ export const CreateNoteForm = ({ transitionStyles, defaultStyle }) => {
           />
         </div>
       </form>
-      <SaveButton handleSaveClick={handleSaveClick} />
+      <SaveButton formValues={formValues} handleSaveClick={handleSaveClick} />
     </section>
   )
 }

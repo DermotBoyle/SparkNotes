@@ -4,7 +4,8 @@ export const Home = ({ transitionStyles, defaultStyle }) => {
   const [transitionState, setTransitionState] = useState('exiting')
 
   useEffect(() => {
-    setTimeout(() => setTransitionState('entering'), 300)
+    const timer = setTimeout(() => setTransitionState('entering'), 300)
+    return () => clearTimeout(timer)
   }, [])
 
   return (

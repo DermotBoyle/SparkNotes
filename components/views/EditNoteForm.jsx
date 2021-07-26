@@ -5,6 +5,8 @@ import styles from 'styles/create-note-form.module.scss'
 
 import moment from 'moment'
 import { useAppContext } from 'context/global-state'
+import router from 'next/router'
+import { Routes } from 'utils'
 
 export const EditNoteForm = ({ transitionStyles, defaultStyle }) => {
   const {
@@ -33,20 +35,18 @@ export const EditNoteForm = ({ transitionStyles, defaultStyle }) => {
 
   const updateDB = async formValues => {
     try {
-      await fetch(`api/note/${_id}`, {
+      await fetch(`api/note/${formValues._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(formValues)
-      }).then(({ statusText }) => {
-        if (statusText === 'Created') {
-          alert('Your note has been updated)')
-          setFormValues(initialFormValues)
-        }
+      }).then(res => {
+        console.log(res, 'res')
+        if (res.status === 201) router.push(Routes.BASE + Routes.VIEW_ALL)
       })
     } catch (error) {
-      console.error(error)
+      alert(error)
     }
   }
 
@@ -72,7 +72,7 @@ export const EditNoteForm = ({ transitionStyles, defaultStyle }) => {
             <input
               type='text'
               name='subject'
-              value={subject}
+              value={formValues.subject}
               onChange={handleFormChange}
             />
           </div>
@@ -81,7 +81,7 @@ export const EditNoteForm = ({ transitionStyles, defaultStyle }) => {
             <input
               type='text'
               name='keywords'
-              value={keywords}
+              value={formValues.keywords}
               onChange={handleFormChange}
             />
           </div>
@@ -91,12 +91,12 @@ export const EditNoteForm = ({ transitionStyles, defaultStyle }) => {
           <textarea
             type='text'
             name='content'
-            value={content}
+            value={formValues.content}
             onChange={handleFormChange}
           />
         </div>
       </form>
-      <SaveButton handleSaveClick={handleSaveClick} />
+      <SaveButton handleSaveClick={handleSaveClick} formValues={formValues} />
     </section>
   )
 }

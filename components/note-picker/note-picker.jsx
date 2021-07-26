@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useAppContext } from 'context/global-state'
 import edit from 'public/edit-icon.svg'
 import { useRouter } from 'next/router'
@@ -15,7 +14,7 @@ const Flickity =
 import styles from 'styles/carousel-container.module.scss'
 
 const flickityOptions = {
-  initialIndex: 1.5
+  pageDots: false
 }
 
 export const NotePicker = ({ allNotes }) => {
@@ -30,6 +29,15 @@ export const NotePicker = ({ allNotes }) => {
     router.push(`${Routes.BASE}${Routes.EDIT}`)
   }
 
+  const deleteNote = _id => {
+    fetch('/api/note/' + _id, {
+      method: 'DELETE'
+    }).then(res => {
+      console.log(res)
+      res.status === 201 && router.reload()
+    })
+  }
+
   return (
     <>
       <Head>
@@ -39,25 +47,28 @@ export const NotePicker = ({ allNotes }) => {
         />
       </Head>
       <div className={styles.carousel}>
-        {!!allNotes && (
+        {!!allNotes ? (
           <Flickity
             initialIndex={1}
             className={'carousel'}
             options={flickityOptions}
             static
           >
-            {allNotes.data.map(({ subject, content, _id }) => (
+            {allNotes.data.map(({ subject, content, _id, keywords = [] }) => (
               <div key={_id} className={styles.item}>
                 <Image
                   src={edit}
                   width={15}
-                  onClick={() => goToEdit({ subject, content, _id })}
+                  onClick={() => goToEdit({ subject, content, _id, keywords })}
                 />
                 <h5>{subject}</h5>
                 <p style={{ fontFamily: 'Satisfy' }}>{content}</p>
+                <button onClick={() => deleteNote({ _id })}>DELETE</button>
               </div>
             ))}
           </Flickity>
+        ) : (
+          <h3>No notes to show</h3>
         )}
       </div>
     </>

@@ -2,13 +2,14 @@
   height: 15rem;
   padding: 0 1.2rem;
   overflow: hidden;
+  position: relative;
 
   &:focus-visible {
     border: none;
     outline: none;
   }
+
   .item {
-    position: relative;
     height: 15rem;
     background-color: #ffffa5;
     width: 15rem;
@@ -19,6 +20,12 @@
 
     img:hover {
       cursor: pointer;
+    }
+
+    button {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
     }
   }
 }

@@ -8,7 +8,7 @@ const ReactTooltip = dynamic(() => import('react-tooltip'), {
   ssr: false
 })
 
-export const SaveButton = ({ handleSaveClick }) => {
+export const SaveButton = ({ handleSaveClick, formValues }) => {
   return (
     <>
       <button
@@ -17,6 +17,7 @@ export const SaveButton = ({ handleSaveClick }) => {
         data-tip
         data-for='save-button'
         onClick={handleSaveClick}
+        disabled={!formValues?.subject && !formValues?.content}
       >
         <Image src={save} alt='tick symbol' width={72} height={16}></Image>
       </button>

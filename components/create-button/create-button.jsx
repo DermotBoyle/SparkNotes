@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import styles from 'styles/control-container.module.scss'
-import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import { Routes } from 'utils'
 import add from 'public/add.svg'
@@ -11,9 +10,8 @@ const ReactTooltip = dynamic(() => import('react-tooltip'), {
 })
 
 export const CreateButton = ({ currentURL }) => {
-  const router = useRouter()
-
-  const isEditMode = () => currentURL === Routes.CREATE
+  const isEditMode = () =>
+    currentURL === Routes.CREATE || currentURL === Routes.EDIT
 
   return (
     <>

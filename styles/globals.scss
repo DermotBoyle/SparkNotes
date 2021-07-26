@@ -21,6 +21,8 @@ a {
   display: none;
 }
 
-.flickity-page-dots {
-  display: none;
+.is-draggable {
+  :focus-visible {
+    outline: none;
+  }
 }
