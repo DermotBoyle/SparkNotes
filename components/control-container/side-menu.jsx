@@ -18,6 +18,7 @@ export const SideMenu = ({ currentURL }) => {
       <ul className={styles['nav-list']}>
         {navLinks.map(({ item, key, path }) => (
           <li
+            data-testid={item}
             key={key}
             className={
               path === currentURL

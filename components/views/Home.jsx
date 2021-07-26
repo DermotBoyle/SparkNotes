@@ -2,13 +2,11 @@ import { useEffect, useState } from 'react'
 import style from 'styles/home.module.scss'
 
 export const Home = ({ transitionStyles, defaultStyle, transitionState }) => {
-  console.log(transitionState)
-
   const [on, setOn] = useState('entering')
 
   useEffect(() => {
     setOn(transitionState)
-  })
+  }, [])
 
   return (
     <section

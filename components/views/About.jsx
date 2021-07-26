@@ -5,12 +5,13 @@ export const About = ({ transitionStyles, defaultStyle, transitionState }) => {
 
   useEffect(() => {
     setOn(transitionState)
-  })
+  }, [])
+
   return (
     <section
       style={{
         ...defaultStyle,
-        ...transitionStyles[transitionState]
+        ...transitionStyles[on]
       }}
     >
       <p>This is an about App I built with NextJS and MongoDB</p>

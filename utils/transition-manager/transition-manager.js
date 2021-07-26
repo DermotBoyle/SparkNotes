@@ -53,12 +53,12 @@ export const transitionManager = transitionState => ({
   )
 })
 
-const defaultStyle = {
+export const defaultStyle = {
   transition: `opacity 800ms ease-out`,
   opacity: 0
 }
 
-const transitionStyles = {
+export const transitionStyles = {
   entered: { opacity: 1 },
   exiting: { opacity: 0 }
 }

@@ -1,3 +1,182 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<MainComponent/> should render the side menu 1`] = `[Function]`;
+exports[`<MainComponent/> should render the About component 1`] = `
+<body>
+  <div>
+    <section>
+      <p>
+        This is an about App I built with NextJS and MongoDB
+      </p>
+    </section>
+  </div>
+</body>
+`;
+
+exports[`<MainComponent/> should render the side menu 1`] = `
+<body>
+  <div>
+    <div
+      class="container"
+      data-testid="side-menu"
+    >
+      <main
+        class="control-container"
+      >
+        <div
+          class="main-view"
+        >
+          <section
+            class="home"
+            style="transition: opacity 800ms ease-out; opacity: 0;"
+          >
+            <h3>
+              Welcome to the note App !
+            </h3>
+            <p>
+              Please select an action from the menu
+            </p>
+          </section>
+        </div>
+        <nav
+          class="side-menu"
+        >
+          <ul
+            class="nav-list"
+          >
+            <li
+              class="nav-link__active"
+              data-testid="home"
+            >
+              <a
+                href="/home"
+              >
+                home
+              </a>
+            </li>
+            <li
+              class="nav-link"
+              data-testid="view all"
+            >
+              <a
+                href="/home?section=view-all"
+              >
+                view all
+              </a>
+            </li>
+            <li
+              class="nav-link"
+              data-testid="find"
+            >
+              <a
+                href="/home?section=find"
+              >
+                find
+              </a>
+            </li>
+            <li
+              class="nav-link"
+              data-testid="about"
+            >
+              <a
+                href="/home?section=about"
+              >
+                about
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <button
+          aria-label="create new note"
+          class="create-button"
+          data-for="create-button"
+          data-tip="true"
+        >
+          <div
+            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          >
+            <div
+              style="box-sizing: border-box; display: block; max-width: 100%;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                role="presentation"
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              />
+            </div>
+            <noscript />
+            <img
+              alt="plus symbol"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+            />
+          </div>
+        </button>
+      </main>
+      <footer
+        class="footer"
+      >
+        <a
+          href="https://github.com/dermotboyle"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Designed and Developed by Dermot Paul Boyle
+        </a>
+        <div
+          class="deployment"
+        >
+          <p>
+            Deployed on 
+          </p>
+          <div
+            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          >
+            <div
+              style="box-sizing: border-box; display: block; max-width: 100%;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                role="presentation"
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+              />
+            </div>
+            <noscript />
+            <img
+              alt="Vercel Logo"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+            />
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<MainComponent/> should render the view-all component with NO DATA 1`] = `
+<body>
+  <div>
+    <section
+      class="view-all"
+    >
+      <p>
+        All Notes
+      </p>
+      <div
+        class="carousel"
+      >
+        <h3>
+          No notes to show
+        </h3>
+      </div>
+    </section>
+  </div>
+</body>
+`;

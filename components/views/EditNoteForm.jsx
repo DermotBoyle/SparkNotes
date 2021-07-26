@@ -1,5 +1,5 @@
 import { SaveButton } from 'components/save-button'
-import { useEffect, useState, useReducer } from 'react'
+import { useReducer } from 'react'
 
 import styles from 'styles/create-note-form.module.scss'
 

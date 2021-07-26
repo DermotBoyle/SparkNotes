@@ -17,7 +17,7 @@ export const ViewAll = ({
 
   useEffect(() => {
     setOn(transitionState)
-  })
+  }, [])
 
   return (
     <section

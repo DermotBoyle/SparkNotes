@@ -27,6 +27,8 @@ export const NotePicker = ({ allNotes }) => {
   const { dispatch } = useAppContext()
   const router = useRouter()
 
+  console.log('AN', allNotes)
+
   const goToEdit = note => {
     dispatch({
       type: 'update',
