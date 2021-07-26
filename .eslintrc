@@ -1,3 +1,7 @@
 {
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
+  },
   "extends": ["next", "next/core-web-vitals"]
 }

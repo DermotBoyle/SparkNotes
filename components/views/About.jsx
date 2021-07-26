@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
 
-export const About = ({ transitionStyles, defaultStyle }) => {
-  const [transitionState, setTransitionState] = useState('exiting')
+export const About = ({ transitionStyles, defaultStyle, transitionState }) => {
+  const [on, setOn] = useState('entering')
 
   useEffect(() => {
-    setTimeout(() => setTransitionState('entering'), 300)
-  }, [])
-
+    setOn(transitionState)
+  })
   return (
     <section
       style={{

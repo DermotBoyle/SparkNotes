@@ -6,21 +6,25 @@ import style from 'styles/view-all.module.scss'
 
 import useSWR from 'swr'
 
-export const ViewAll = ({ transitionStyles, defaultStyle }) => {
-  const [transitionState, setTransitionState] = useState('exiting')
-
+export const ViewAll = ({
+  transitionStyles,
+  defaultStyle,
+  transitionState
+}) => {
   const { data: data } = useSWR('/api/note/', fetcher)
 
+  const [on, setOn] = useState('entering')
+
   useEffect(() => {
-    setTimeout(() => setTransitionState('entering'), 300)
-  }, [])
+    setOn(transitionState)
+  })
 
   return (
     <section
       className={style['view-all']}
       style={{
         ...defaultStyle,
-        ...transitionStyles[transitionState]
+        ...transitionStyles[on]
       }}
     >
       <p>All Notes</p>

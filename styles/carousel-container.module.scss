@@ -1,9 +1,7 @@
 .carousel {
   height: 15rem;
   padding: 0 1.2rem;
-  overflow: hidden;
   position: relative;
-
   &:focus-visible {
     border: none;
     outline: none;
@@ -12,6 +10,7 @@
   .item {
     height: 15rem;
     position: relative;
+    flex-shrink: 0;
     background-color: #ffffa5;
     width: 15rem;
     border: 2px solid black;

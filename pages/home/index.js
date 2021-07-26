@@ -16,14 +16,15 @@ export default function MainComponent () {
   const { query } = useRouter()
 
   useEffect(() => {
-    dispatch({
-      type: query.section === '/' ? 'reset' : 'update',
-      payload: { currentURL: query.section }
-    })
+    query &&
+      dispatch({
+        type: query.section === '/' ? 'reset' : 'update',
+        payload: { currentURL: query.section }
+      })
   }, [query])
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid='side-menu'>
       <Head>
         <title>Spark Notes</title>
         <meta name='Code test for Sparks' />
@@ -44,7 +45,7 @@ export default function MainComponent () {
         </a>
         <div className={styles.deployment}>
           <p>Deployed on </p>
-          <Image src={vercel} alt='Vercel Logo' width={72} height={16} />
+          <Image src={'/vercel.svg'} alt='Vercel Logo' width={72} height={16} />
         </div>
       </footer>
     </div>

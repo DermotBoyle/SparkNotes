@@ -24,7 +24,12 @@ export const CreateButton = ({ currentURL }) => {
               data-tip
               data-for='create-button'
             >
-              <Image src={add} alt='plus symbol' width={72} height={16}></Image>
+              <Image
+                src={'/add.svg'}
+                alt='plus symbol'
+                width={72}
+                height={16}
+              ></Image>
             </button>
           </Link>
 

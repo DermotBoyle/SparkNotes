@@ -1,18 +1,16 @@
 import { useEffect, useState } from 'react'
 
-export const Find = ({ transitionStyles, defaultStyle }) => {
-  const [transitionState, setTransitionState] = useState('exiting')
+export const Find = ({ transitionStyles, defaultStyle, transitionState }) => {
+  const [on, setOn] = useState('entering')
 
   useEffect(() => {
-    setTimeout(() => setTransitionState('entering'), 300),
-      () => setTransitionState('exiting')
-  }, [])
-
+    setOn(transitionState)
+  })
   return (
     <section
       style={{
         ...defaultStyle,
-        ...transitionStyles[transitionState]
+        ...transitionStyles[on]
       }}
     >
       <p>Find Section Here</p>

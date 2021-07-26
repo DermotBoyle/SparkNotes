@@ -1,11 +1,15 @@
 import { SaveButton } from 'components/save-button'
-import { useEffect, useState, useReducer } from 'react'
+import { useReducer } from 'react'
 
 import styles from 'styles/create-note-form.module.scss'
 
 import moment from 'moment'
 
-export const CreateNoteForm = ({ transitionStyles, defaultStyle }) => {
+export const CreateNoteForm = ({
+  transitionStyles,
+  defaultStyle,
+  transitionState
+}) => {
   const initialFormValues = {
     subject: '',
     keywords: '',
@@ -48,13 +52,6 @@ export const CreateNoteForm = ({ transitionStyles, defaultStyle }) => {
       console.error(error)
     }
   }
-
-  const [transitionState, setTransitionState] = useState('exiting')
-
-  useEffect(() => {
-    setTimeout(() => setTransitionState('entering'), 300),
-      () => setTransitionState('exiting')
-  }, [])
 
   return (
     <section

@@ -1,18 +1,21 @@
 import { useEffect, useState } from 'react'
+import style from 'styles/home.module.scss'
 
-export const Home = ({ transitionStyles, defaultStyle }) => {
-  const [transitionState, setTransitionState] = useState('exiting')
+export const Home = ({ transitionStyles, defaultStyle, transitionState }) => {
+  console.log(transitionState)
+
+  const [on, setOn] = useState('entering')
 
   useEffect(() => {
-    const timer = setTimeout(() => setTransitionState('entering'), 300)
-    return () => clearTimeout(timer)
-  }, [])
+    setOn(transitionState)
+  })
 
   return (
     <section
+      className={style.home}
       style={{
         ...defaultStyle,
-        ...transitionStyles[transitionState]
+        ...transitionStyles[on]
       }}
     >
       <h3>Welcome to the note App !</h3>

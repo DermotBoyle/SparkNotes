@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useAppContext } from 'context/global-state'
 import edit from 'public/edit-icon.svg'
 import { useRouter } from 'next/router'
+import dynamic from 'next/dynamic'
 
 import { Routes } from 'utils'
 
@@ -11,10 +12,15 @@ const Flickity =
     ? require('react-flickity-component')
     : () => null
 
+const ReactTooltip = dynamic(() => import('react-tooltip'), {
+  ssr: false
+})
+
 import styles from 'styles/carousel-container.module.scss'
 
 const flickityOptions = {
-  pageDots: false
+  pageDots: false,
+  initialIndex: 2
 }
 
 export const NotePicker = ({ allNotes }) => {
@@ -47,7 +53,7 @@ export const NotePicker = ({ allNotes }) => {
         />
       </Head>
       <div className={styles.carousel}>
-        {!!allNotes ? (
+        {allNotes?.data.length ? (
           <Flickity
             initialIndex={1}
             className={'carousel'}
@@ -57,6 +63,8 @@ export const NotePicker = ({ allNotes }) => {
             {allNotes.data.map(({ subject, content, _id, keywords = [] }) => (
               <div key={_id} className={styles.item}>
                 <Image
+                  data-tip
+                  data-for='edit-button'
                   src={edit}
                   width={15}
                   onClick={() => goToEdit({ subject, content, _id, keywords })}
@@ -71,6 +79,9 @@ export const NotePicker = ({ allNotes }) => {
           <h3>No notes to show</h3>
         )}
       </div>
+      <ReactTooltip id='edit-button' place='top' type='dark' effect='float'>
+        <p>Create a note</p>
+      </ReactTooltip>
     </>
   )
 }

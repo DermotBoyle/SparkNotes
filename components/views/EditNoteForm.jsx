@@ -6,9 +6,13 @@ import styles from 'styles/create-note-form.module.scss'
 import moment from 'moment'
 import { useAppContext } from 'context/global-state'
 import router from 'next/router'
-import { Routes } from 'utils'
+import { Routes, Methods } from 'utils'
 
-export const EditNoteForm = ({ transitionStyles, defaultStyle }) => {
+export const EditNoteForm = ({
+  transitionStyles,
+  defaultStyle,
+  transitionState
+}) => {
   const {
     state: { subject, keywords, content, _id }
   } = useAppContext()
@@ -36,26 +40,18 @@ export const EditNoteForm = ({ transitionStyles, defaultStyle }) => {
   const updateDB = async formValues => {
     try {
       await fetch(`api/note/${formValues._id}`, {
-        method: 'PUT',
+        method: Methods.PUT,
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(formValues)
       }).then(res => {
-        console.log(res, 'res')
         if (res.status === 201) router.push(Routes.BASE + Routes.VIEW_ALL)
       })
     } catch (error) {
       alert(error)
     }
   }
-
-  const [transitionState, setTransitionState] = useState('exiting')
-
-  useEffect(() => {
-    setTimeout(() => setTransitionState('entering'), 300),
-      () => setTransitionState('exiting')
-  }, [])
 
   return (
     <section

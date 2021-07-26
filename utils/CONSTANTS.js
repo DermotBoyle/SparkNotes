@@ -14,3 +14,10 @@ export const Routes = {
   CREATE: 'create-note',
   EDIT: 'edit-note'
 }
+
+export const Methods = {
+  PUT: 'PUT',
+  GET: 'GET',
+  DELETE: 'DELETE',
+  POST: 'POST'
+}
