@@ -8,7 +8,8 @@ export const Find = ({ transitionStyles, defaultStyle, transitionState }) => {
 
   useEffect(() => {
     setOn(transitionState)
-  })
+  }, [])
+
   return (
     <section
       className={style.find}
