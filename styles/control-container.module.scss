@@ -66,7 +66,9 @@
       &:hover {
         color: lightgray;
         text-decoration: underline 2px;
+        -webkit-text-decoration: underline 2px;
         text-underline-offset: 0.2em;
+        -webkit-text-underline-offset: 0.2em;
         transition: 0.3s;
       }
 
@@ -74,7 +76,9 @@
         margin: 1.3rem auto;
         color: black;
         text-decoration: underline 2px;
+        -webkit-text-decoration: underline 2px;
         text-underline-offset: 0.2em;
+        -webkit-text-underline-offset: 0.2em;
       }
     }
   }

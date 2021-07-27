@@ -64,6 +64,14 @@ export const NotePicker = ({ allNotes }) => {
           >
             {allNotes.data.map(({ subject, content, _id, keywords = [] }) => (
               <div key={_id} className={styles.item}>
+                <ReactTooltip
+                  id='edit-button'
+                  place='top'
+                  type='dark'
+                  effect='float'
+                >
+                  <p>Edit a note</p>
+                </ReactTooltip>
                 <Image
                   data-tip
                   data-for='edit-button'
@@ -81,9 +89,6 @@ export const NotePicker = ({ allNotes }) => {
           <h3>No notes to show</h3>
         )}
       </div>
-      <ReactTooltip id='edit-button' place='top' type='dark' effect='float'>
-        <p>Create a note</p>
-      </ReactTooltip>
     </>
   )
 }
