@@ -33,7 +33,7 @@ export const CreateNoteForm = ({
   }
 
   const handleSaveClick = async () => {
-    formValues.date = moment(new Date()).format('YYYY-MM-DD-T00:00:00.000Z')
+    formValues.date = moment.utc().format()
     updateDB(formValues)
   }
 
@@ -45,10 +45,10 @@ export const CreateNoteForm = ({
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(formValues)
-      }).then(({ statusText }) => {
-        if (statusText === 'Created') {
+      }).then(res => {
+        if (res.status === 201) {
           setFormValues(initialFormValues)
-          if (res.status === 201) router.push(Routes.BASE + Routes.VIEW_ALL)
+          router.push(Routes.BASE + Routes.VIEW_ALL)
         }
       })
     } catch (error) {

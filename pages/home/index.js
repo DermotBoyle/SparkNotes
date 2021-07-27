@@ -46,7 +46,7 @@ export default function MainComponent () {
         </a>
         <div className={styles.deployment}>
           <p>Deployed on </p>
-          <Image src={'/vercel.svg'} alt='Vercel Logo' width={72} height={16} />
+          <Image src={vercel} alt='Vercel Logo' width={72} height={16} />
         </div>
       </footer>
     </div>
