@@ -33,7 +33,7 @@ export const EditNoteForm = ({
   }
 
   const handleSaveClick = async () => {
-    formValues.updated = moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]')
+    formValues.updated = moment(new Date()).format('YYYY-MM-DDT00:00:00.000Z')
     updateDB(formValues)
   }
 

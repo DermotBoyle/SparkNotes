@@ -1,0 +1,17 @@
+.solution {
+  width: 90%;
+  height: 90%;
+  overflow-x: scroll;
+  word-break: normal;
+  line-height: 1.5;
+  padding: 1rem;
+
+  h3 {
+    width: fit-content;
+    margin: auto;
+  }
+
+  pre {
+    white-space: pre-line;
+  }
+}
