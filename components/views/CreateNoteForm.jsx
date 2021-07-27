@@ -1,9 +1,12 @@
 import { SaveButton } from 'components/save-button'
 import { useReducer } from 'react'
+import router from 'next/router'
 
 import styles from 'styles/create-note-form.module.scss'
 
 import moment from 'moment'
+
+import { Routes } from 'utils'
 
 export const CreateNoteForm = ({
   transitionStyles,
@@ -44,8 +47,8 @@ export const CreateNoteForm = ({
         body: JSON.stringify(formValues)
       }).then(({ statusText }) => {
         if (statusText === 'Created') {
-          alert('Your note has been saved)')
           setFormValues(initialFormValues)
+          if (res.status === 201) router.push(Routes.BASE + Routes.VIEW_ALL)
         }
       })
     } catch (error) {
