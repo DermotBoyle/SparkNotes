@@ -12,6 +12,18 @@ exports[`<MainComponent/> should render the About component 1`] = `
 </body>
 `;
 
+exports[`<MainComponent/> should render the Find component 1`] = `
+<body>
+  <div>
+    <section>
+      <p>
+        Find Section Here
+      </p>
+    </section>
+  </div>
+</body>
+`;
+
 exports[`<MainComponent/> should render the side menu 1`] = `
 <body>
   <div>
@@ -27,7 +39,7 @@ exports[`<MainComponent/> should render the side menu 1`] = `
         >
           <section
             class="home"
-            style="transition: opacity 800ms ease-out; opacity: 0;"
+            style="transition: opacity 800ms ease-out; opacity: 1;"
           >
             <h3>
               Welcome to the note App !

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Home, ViewAll, About } from 'components/views'
+import { ViewAll, About, Find } from 'components/views'
 import { transitionStyles } from 'utils/transition-manager/transition-manager'
-import { cleanup, fireEvent, render, act, screen } from '@testing-library/react'
+import { fireEvent, render, act, screen } from '@testing-library/react'
 import MainComponent from 'pages/home/index.js'
 import { AppContext } from 'context/global-state'
 import preloadAll from 'jest-next-dynamic'
@@ -91,6 +91,24 @@ describe('<MainComponent/>', () => {
     expect(baseElement).toMatchSnapshot()
   })
 
+  it('should change view onClick of nav item', async () => {
+    const mockDispatch = jest.fn()
+    const mockState = { currentURL: '/home' }
+    nextRouter.useRouter = jest.fn()
+    nextRouter.useRouter.mockImplementation(() => ({
+      route: '/home',
+      query: { section: '/' }
+    }))
+
+    const { baseElement } = render(WrapperProviderMain(mockDispatch, mockState))
+
+    const element = screen.getByText('View All')
+    fireEvent.click(element)
+
+    expect(element).toBeInTheDocument()
+    expect(baseElement).toMatchSnapshot()
+  })
+
   it('should render the NotePicker component with data', () => {
     const mockDispatch = jest.fn()
     const mockState = { currentURL: '/about' }
@@ -109,7 +127,7 @@ describe('<MainComponent/>', () => {
 
   it('should render the view-all component with NO DATA', () => {
     const mockDispatch = jest.fn()
-    const mockState = { currentURL: '/home' }
+    const mockState = { currentURL: '/view-all' }
     const { baseElement } = render(
       WrapperProviderComp(
         mockDispatch,
@@ -136,6 +154,22 @@ describe('<MainComponent/>', () => {
     const element = screen.getByText(
       'This is an about App I built with NextJS and MongoDB'
     )
+
+    expect(element).toBeInTheDocument()
+    expect(baseElement).toMatchSnapshot()
+  })
+
+  it('should render the Find component', () => {
+    const mockDispatch = jest.fn()
+    const mockState = { currentURL: '/find' }
+    const { baseElement } = render(
+      WrapperProviderComp(
+        mockDispatch,
+        mockState
+      )(<Find transitionStyles={transitionStyles} />)
+    )
+
+    const element = screen.getByText('Find Section Here')
 
     expect(element).toBeInTheDocument()
     expect(baseElement).toMatchSnapshot()

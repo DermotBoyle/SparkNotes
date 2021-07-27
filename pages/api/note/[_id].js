@@ -6,8 +6,6 @@ export default async function handler (req, res) {
 
   const { _id, ...rest } = req.body
 
-  console.log(_id, 'req id')
-
   if (req.method === 'PUT') {
     try {
       const createdNote = await Note.findOneAndUpdate({ _id }, rest)

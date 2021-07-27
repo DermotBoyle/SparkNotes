@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useAppContext } from 'context/global-state'
@@ -7,12 +8,11 @@ import dynamic from 'next/dynamic'
 
 import { Routes } from 'utils'
 
-const Flickity =
-  typeof window !== 'undefined'
-    ? require('react-flickity-component')
-    : () => null
-
 const ReactTooltip = dynamic(() => import('react-tooltip'), {
+  ssr: false
+})
+
+const Flickity = dynamic(() => import('react-flickity-component'), {
   ssr: false
 })
 
@@ -32,7 +32,7 @@ export const NotePicker = ({ allNotes }) => {
   const goToEdit = note => {
     dispatch({
       type: 'update',
-      payload: { currentNote: note, currentURL: 'edit-mode' }
+      payload: { currentNote: note, currentURL: 'edit-note' }
     })
     router.push(`${Routes.BASE}${Routes.EDIT}`)
   }

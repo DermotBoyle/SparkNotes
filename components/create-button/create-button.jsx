@@ -1,3 +1,4 @@
+import React from 'react'
 import Image from 'next/image'
 import styles from 'styles/control-container.module.scss'
 import dynamic from 'next/dynamic'
