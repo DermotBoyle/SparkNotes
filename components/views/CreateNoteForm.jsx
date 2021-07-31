@@ -1,6 +1,6 @@
 import { SaveButton } from 'components/save-button'
 import { useReducer } from 'react'
-import router from 'next/router'
+import { Router } from 'next/router'
 
 import styles from 'styles/create-note-form.module.scss'
 
@@ -48,7 +48,7 @@ export const CreateNoteForm = ({
       }).then(res => {
         if (res.status === 201) {
           setFormValues(initialFormValues)
-          router.push(Routes.BASE + Routes.VIEW_ALL)
+          Router.push(Routes.BASE + Routes.VIEW_ALL)
         }
       })
     } catch (error) {

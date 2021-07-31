@@ -4,17 +4,8 @@ import Image from 'next/image'
 import { useAppContext } from 'context/global-state'
 import edit from 'public/edit-icon.svg'
 import { useRouter } from 'next/router'
-import dynamic from 'next/dynamic'
 
 import { Routes } from 'utils'
-
-const ReactTooltip = dynamic(() => import('react-tooltip'), {
-  ssr: false
-})
-
-const Flickity = dynamic(() => import('react-flickity-component'), {
-  ssr: false
-})
 
 import styles from 'styles/carousel-container.module.scss'
 
@@ -26,8 +17,6 @@ const flickityOptions = {
 export const NotePicker = ({ allNotes }) => {
   const { dispatch } = useAppContext()
   const router = useRouter()
-
-  console.log('AN', allNotes)
 
   const goToEdit = note => {
     dispatch({
@@ -56,22 +45,9 @@ export const NotePicker = ({ allNotes }) => {
       </Head>
       <div className={styles.carousel}>
         {allNotes?.data.length ? (
-          <Flickity
-            initialIndex={1}
-            className={'carousel'}
-            options={flickityOptions}
-            static
-          >
+          <div>
             {allNotes.data.map(({ subject, content, _id, keywords = [] }) => (
               <div key={_id} className={styles.item}>
-                <ReactTooltip
-                  id='edit-button'
-                  place='top'
-                  type='dark'
-                  effect='float'
-                >
-                  <p>Edit a note</p>
-                </ReactTooltip>
                 <Image
                   data-tip
                   data-for='edit-button'
@@ -84,7 +60,7 @@ export const NotePicker = ({ allNotes }) => {
                 <button onClick={() => deleteNote({ _id })}>DELETE</button>
               </div>
             ))}
-          </Flickity>
+          </div>
         ) : (
           <h3>No notes to show</h3>
         )}

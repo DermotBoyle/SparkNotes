@@ -5,7 +5,7 @@ import styles from 'styles/create-note-form.module.scss'
 
 import moment from 'moment'
 import { useAppContext } from 'context/global-state'
-import router from 'next/router'
+import { Router } from 'next/router'
 import { Routes, Methods } from 'utils'
 
 export const EditNoteForm = ({
@@ -46,7 +46,7 @@ export const EditNoteForm = ({
         },
         body: JSON.stringify(formValues)
       }).then(res => {
-        if (res.status === 201) router.push(Routes.BASE + Routes.VIEW_ALL)
+        if (res.status === 201) Router.push(Routes.BASE + Routes.VIEW_ALL)
       })
     } catch (error) {
       alert(error)

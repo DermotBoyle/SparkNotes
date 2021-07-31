@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React from 'react'
 import { ViewAll, About, Find } from 'components/views'
 import { transitionStyles } from 'utils/transition-manager/transition-manager'
@@ -5,9 +6,15 @@ import { fireEvent, render, act, screen } from '@testing-library/react'
 import MainComponent from 'pages/home/index.js'
 import { AppContext } from 'context/global-state'
 import preloadAll from 'jest-next-dynamic'
-
 import * as nextRouter from 'next/router'
 import { NotePicker } from 'components/note-picker'
+
+// eslint-disable-next-line react/display-name
+// eslint-disable-next-line @next/next/no-img-element
+jest.mock('next/image', () => ({ src, alt }) => <img src={src} alt={alt} />)
+jest.mock('crypto', () => ({
+  randomBytes: num => new Array(num).fill(0)
+}))
 
 const allNotes = {
   data: [
@@ -97,12 +104,13 @@ describe('<MainComponent/>', () => {
     nextRouter.useRouter = jest.fn()
     nextRouter.useRouter.mockImplementation(() => ({
       route: '/home',
-      query: { section: '/' }
+      query: { section: '/' },
+      push: jest.fn()
     }))
 
     const { baseElement } = render(WrapperProviderMain(mockDispatch, mockState))
 
-    const element = screen.getByText('View All')
+    const element = screen.getByText('view all')
     fireEvent.click(element)
 
     expect(element).toBeInTheDocument()
@@ -136,9 +144,11 @@ describe('<MainComponent/>', () => {
     )
 
     const element = screen.getByText('All Notes')
+    const message = screen.getByText('No notes to show')
 
     expect(element).toBeInTheDocument()
-    expect(baseElement).toMatchSnapshot()
+
+    expect(message).toBeInTheDocument()
   })
 
   it('should render the About component', () => {
@@ -151,9 +161,7 @@ describe('<MainComponent/>', () => {
       )(<About transitionStyles={transitionStyles} />)
     )
 
-    const element = screen.getByText(
-      'This is an about App I built with NextJS and MongoDB'
-    )
+    const element = screen.getByText('--About the solution --')
 
     expect(element).toBeInTheDocument()
     expect(baseElement).toMatchSnapshot()

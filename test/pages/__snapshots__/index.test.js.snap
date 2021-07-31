@@ -1,30 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<MainComponent/> should render the About component 1`] = `
-<body>
-  <div>
-    <section>
-      <p>
-        This is an about App I built with NextJS and MongoDB
-      </p>
-    </section>
-  </div>
-</body>
-`;
-
-exports[`<MainComponent/> should render the Find component 1`] = `
-<body>
-  <div>
-    <section>
-      <p>
-        Find Section Here
-      </p>
-    </section>
-  </div>
-</body>
-`;
-
-exports[`<MainComponent/> should render the side menu 1`] = `
+exports[`<MainComponent/> should change view onClick of nav item 1`] = `
 <body>
   <div>
     <div
@@ -48,6 +24,271 @@ exports[`<MainComponent/> should render the side menu 1`] = `
               Please select an action from the menu
             </p>
           </section>
+        </div>
+        <div
+          class="__react_component_tooltip t00000000-0000-4000-8000-000000000000 place-top type-dark"
+          data-id="tooltip"
+          id="save-button"
+        >
+          <style
+            aria-hidden="true"
+          >
+            
+  	.t00000000-0000-4000-8000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-4000-8000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  
+          </style>
+          <p>
+            Save the note
+          </p>
+        </div>
+         
+        <div
+          class="__react_component_tooltip t00000000-0000-4000-8000-000000000000 place-top type-dark"
+          data-id="tooltip"
+          id="edit-button"
+        >
+          <style
+            aria-hidden="true"
+          >
+            
+  	.t00000000-0000-4000-8000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-4000-8000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  
+          </style>
+          <p>
+            Edit a note
+          </p>
+        </div>
+        <div
+          class="__react_component_tooltip t00000000-0000-4000-8000-000000000000 place-top type-dark"
+          data-id="tooltip"
+          id="create-button"
+        >
+          <style
+            aria-hidden="true"
+          >
+            
+  	.t00000000-0000-4000-8000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-4000-8000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  
+          </style>
+          <p>
+            Create a note
+          </p>
         </div>
         <nav
           class="side-menu"
@@ -100,31 +341,14 @@ exports[`<MainComponent/> should render the side menu 1`] = `
         <button
           aria-label="create new note"
           class="create-button"
+          currentitem="false"
           data-for="create-button"
           data-tip="true"
         >
-          <div
-            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
-          >
-            <div
-              style="box-sizing: border-box; display: block; max-width: 100%;"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                role="presentation"
-                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
-                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-              />
-            </div>
-            <noscript />
-            <img
-              alt="plus symbol"
-              decoding="async"
-              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-            />
-          </div>
+          <img
+            alt="plus symbol"
+            src="[object Object]"
+          />
         </button>
       </main>
       <footer
@@ -143,28 +367,10 @@ exports[`<MainComponent/> should render the side menu 1`] = `
           <p>
             Deployed on 
           </p>
-          <div
-            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
-          >
-            <div
-              style="box-sizing: border-box; display: block; max-width: 100%;"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                role="presentation"
-                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
-                style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-              />
-            </div>
-            <noscript />
-            <img
-              alt="Vercel Logo"
-              decoding="async"
-              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-            />
-          </div>
+          <img
+            alt="Vercel Logo"
+            src="[object Object]"
+          />
         </div>
       </footer>
     </div>
@@ -172,23 +378,552 @@ exports[`<MainComponent/> should render the side menu 1`] = `
 </body>
 `;
 
-exports[`<MainComponent/> should render the view-all component with NO DATA 1`] = `
+exports[`<MainComponent/> should render the About component 1`] = `
 <body>
   <div>
     <section
-      class="view-all"
+      class="solution"
+    >
+      <h3>
+         --About the solution -- 
+      </h3>
+      <p>
+        This application is build with NextJS and mongoDB, I thought it was the best option based on the business requirements of creating a basic CRUD API and frontend. With nextJS I could take adavantage of the serverless functionalities and not have to worry about spinning up an express app. I went with mongoDB as its suitable for the app, as no complex entity relationships were needed to be formed and it also served the CRUD functionality well. Styling was taken care of with SASS and some simple page transition animations are cared for by the natural React lifecycle (mounting/unmounting) and aided by useEffect and useState.
+      </p>
+      <h5>
+        Question 1 - what would be a good payload response
+      </h5>
+      <p>
+        The payload response given for a single note looks fine to me. Outside of the id, data and necessary content nothing else is really needed.
+        <br />
+        <pre>
+          {
+  "id": "123abc",
+  "date": "datetime",
+  "content": "some content here"
+}
+        </pre>
+        <br />
+        As the app became more complex info such as, hasBeenUpdated or by whom was it created/updated by would be a useful addition. So the only difference apart from having the response returned in an array for multiple notes could be to have it keyed by date or category/subject for quicker sorting/filtering
+      </p>
+      <h5>
+        Question 2 - what function to add
+      </h5>
+      <p>
+        I can think of a few that would be nice to see :
+      </p>
+      <ul>
+        <li>
+          <pre>
+            Method: GET
+            <br />
+            Function: Find a note/s by subject, keyword or date
+            <br />
+            Payload: Would be same as above - or some appropriate not found handling
+          </pre>
+        </li>
+        <li>
+          <pre>
+            Method: PUT/PATCH/POST
+            <br />
+            Function: Assign a deadline
+            <br />
+            Payload: depending on if it is a new note or an update, again same as above but with updated deadline field. My implementation uses an updated field.
+          </pre>
+        </li>
+        <li>
+          <pre>
+            Method: POST
+            <br />
+            Function: Recieve notes sorted by some function
+            <br />
+            Payload: providing the backend with some conditions return a sorted list, same structe as the others
+          </pre>
+        </li>
+        <li>
+          <pre>
+            Method: POST
+            <br />
+            Function: share note with other user
+            <br />
+            Payload: providing the backend with other user ID, notify user of shared note.
+            <br />
+            {
+  "id": "123abc",
+  "user": "user",
+  "sharedWithUser": "otherUser",
+  "content": {
+    "subject": "subject",
+    "content": "content",
+    "keywords": "keywords"
+  }
+}
+          </pre>
+        </li>
+      </ul>
+    </section>
+  </div>
+</body>
+`;
+
+exports[`<MainComponent/> should render the Find component 1`] = `
+<body>
+  <div>
+    <section
+      class="find"
     >
       <p>
-        All Notes
+        Find Section Here
       </p>
-      <div
-        class="carousel"
-      >
-        <h3>
-          No notes to show
-        </h3>
-      </div>
+      <h3>
+        ...in progress
+      </h3>
     </section>
+  </div>
+</body>
+`;
+
+exports[`<MainComponent/> should render the NotePicker component with data 1`] = `
+<body>
+  <div>
+    <div
+      class="carousel"
+    >
+      <div>
+        <div
+          class="item"
+        >
+          <img
+            src="[object Object]"
+          />
+          <h5>
+            testSubject
+          </h5>
+          <p
+            style="font-family: Satisfy;"
+          >
+            content
+          </p>
+          <button>
+            DELETE
+          </button>
+        </div>
+        <div
+          class="item"
+        >
+          <img
+            src="[object Object]"
+          />
+          <h5>
+            testSubject
+          </h5>
+          <p
+            style="font-family: Satisfy;"
+          >
+            content
+          </p>
+          <button>
+            DELETE
+          </button>
+        </div>
+        <div
+          class="item"
+        >
+          <img
+            src="[object Object]"
+          />
+          <h5>
+            testSubject
+          </h5>
+          <p
+            style="font-family: Satisfy;"
+          >
+            content
+          </p>
+          <button>
+            DELETE
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<MainComponent/> should render the side menu 1`] = `
+<body>
+  <div>
+    <div
+      class="container"
+      data-testid="side-menu"
+    >
+      <main
+        class="control-container"
+      >
+        <div
+          class="main-view"
+        >
+          <section
+            class="home"
+            style="transition: opacity 800ms ease-out; opacity: 1;"
+          >
+            <h3>
+              Welcome to the note App !
+            </h3>
+            <p>
+              Please select an action from the menu
+            </p>
+          </section>
+        </div>
+        <div
+          class="__react_component_tooltip t00000000-0000-4000-8000-000000000000 place-top type-dark"
+          data-id="tooltip"
+          id="save-button"
+        >
+          <style
+            aria-hidden="true"
+          >
+            
+  	.t00000000-0000-4000-8000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-4000-8000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  
+          </style>
+          <p>
+            Save the note
+          </p>
+        </div>
+         
+        <div
+          class="__react_component_tooltip t00000000-0000-4000-8000-000000000000 place-top type-dark"
+          data-id="tooltip"
+          id="edit-button"
+        >
+          <style
+            aria-hidden="true"
+          >
+            
+  	.t00000000-0000-4000-8000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-4000-8000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  
+          </style>
+          <p>
+            Edit a note
+          </p>
+        </div>
+        <div
+          class="__react_component_tooltip t00000000-0000-4000-8000-000000000000 place-top type-dark"
+          data-id="tooltip"
+          id="create-button"
+        >
+          <style
+            aria-hidden="true"
+          >
+            
+  	.t00000000-0000-4000-8000-000000000000 {
+	    color: #fff;
+	    background: #222;
+	    border: 1px solid transparent;
+  	}
+
+  	.t00000000-0000-4000-8000-000000000000.place-top {
+        margin-top: -10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-top::before {
+        border-top: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-top::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-color: #222;
+        border-top-style: solid;
+        border-top-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-bottom {
+        margin-top: 10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-bottom::before {
+        border-bottom: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-bottom::after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: -6px;
+        left: 50%;
+        margin-left: -8px;
+        border-bottom-color: #222;
+        border-bottom-style: solid;
+        border-bottom-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-left {
+        margin-left: -10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-left::before {
+        border-left: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-left::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        right: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-left-color: #222;
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+
+    .t00000000-0000-4000-8000-000000000000.place-right {
+        margin-left: 10px;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-right::before {
+        border-right: 8px solid transparent;
+    }
+    .t00000000-0000-4000-8000-000000000000.place-right::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        left: -6px;
+        top: 50%;
+        margin-top: -4px;
+        border-right-color: #222;
+        border-right-style: solid;
+        border-right-width: 6px;
+    }
+  
+          </style>
+          <p>
+            Create a note
+          </p>
+        </div>
+        <nav
+          class="side-menu"
+        >
+          <ul
+            class="nav-list"
+          >
+            <li
+              class="nav-link__active"
+              data-testid="home"
+            >
+              <a
+                href="/home"
+              >
+                home
+              </a>
+            </li>
+            <li
+              class="nav-link"
+              data-testid="view all"
+            >
+              <a
+                href="/home?section=view-all"
+              >
+                view all
+              </a>
+            </li>
+            <li
+              class="nav-link"
+              data-testid="find"
+            >
+              <a
+                href="/home?section=find"
+              >
+                find
+              </a>
+            </li>
+            <li
+              class="nav-link"
+              data-testid="about"
+            >
+              <a
+                href="/home?section=about"
+              >
+                about
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <button
+          aria-label="create new note"
+          class="create-button"
+          currentitem="false"
+          data-for="create-button"
+          data-tip="true"
+        >
+          <img
+            alt="plus symbol"
+            src="[object Object]"
+          />
+        </button>
+      </main>
+      <footer
+        class="footer"
+      >
+        <a
+          href="https://github.com/dermotboyle"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Designed and Developed by Dermot Paul Boyle
+        </a>
+        <div
+          class="deployment"
+        >
+          <p>
+            Deployed on 
+          </p>
+          <img
+            alt="Vercel Logo"
+            src="[object Object]"
+          />
+        </div>
+      </footer>
+    </div>
   </div>
 </body>
 `;
