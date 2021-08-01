@@ -489,61 +489,59 @@ exports[`<MainComponent/> should render the NotePicker component with data 1`] =
     <div
       class="carousel"
     >
-      <div>
-        <div
-          class="item"
+      <div
+        class="item"
+      >
+        <img
+          src="[object Object]"
+        />
+        <h5>
+          testSubject
+        </h5>
+        <p
+          style="font-family: Satisfy;"
         >
-          <img
-            src="[object Object]"
-          />
-          <h5>
-            testSubject
-          </h5>
-          <p
-            style="font-family: Satisfy;"
-          >
-            content
-          </p>
-          <button>
-            DELETE
-          </button>
-        </div>
-        <div
-          class="item"
+          content
+        </p>
+        <button>
+          DELETE
+        </button>
+      </div>
+      <div
+        class="item"
+      >
+        <img
+          src="[object Object]"
+        />
+        <h5>
+          testSubject
+        </h5>
+        <p
+          style="font-family: Satisfy;"
         >
-          <img
-            src="[object Object]"
-          />
-          <h5>
-            testSubject
-          </h5>
-          <p
-            style="font-family: Satisfy;"
-          >
-            content
-          </p>
-          <button>
-            DELETE
-          </button>
-        </div>
-        <div
-          class="item"
+          content
+        </p>
+        <button>
+          DELETE
+        </button>
+      </div>
+      <div
+        class="item"
+      >
+        <img
+          src="[object Object]"
+        />
+        <h5>
+          testSubject
+        </h5>
+        <p
+          style="font-family: Satisfy;"
         >
-          <img
-            src="[object Object]"
-          />
-          <h5>
-            testSubject
-          </h5>
-          <p
-            style="font-family: Satisfy;"
-          >
-            content
-          </p>
-          <button>
-            DELETE
-          </button>
-        </div>
+          content
+        </p>
+        <button>
+          DELETE
+        </button>
       </div>
     </div>
   </div>

@@ -23,7 +23,7 @@ export const ViewAll = ({
 
   useEffect(() => {
     if (data) {
-      setIsLoading(true)
+      setIsLoading(false)
     }
   }, [data])
 

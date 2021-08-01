@@ -16,6 +16,11 @@ jest.mock('crypto', () => ({
   randomBytes: num => new Array(num).fill(0)
 }))
 
+jest.mock('utils/helpers/fetcher', () => ({
+  fetcher: jest.fn().mockResolvedValueOnce([]),
+  readData: jest.fn().mockResolvedValue([])
+}))
+
 const allNotes = {
   data: [
     {
@@ -125,7 +130,7 @@ describe('<MainComponent/>', () => {
       WrapperProviderComp(
         mockDispatch,
         mockState
-      )(<NotePicker allNotes={allNotes} />)
+      )(<NotePicker allNotes={allNotes} isLoading={false} />)
     )
     const items = screen.getAllByText('testSubject')
 
@@ -133,18 +138,23 @@ describe('<MainComponent/>', () => {
     expect(baseElement).toMatchSnapshot()
   })
 
-  it('should render the view-all component with NO DATA', () => {
+  it('should render the NotePicker component with NO DATA', async () => {
+    fetchMock.once([])
     const mockDispatch = jest.fn()
     const mockState = { currentURL: '/view-all' }
     const { baseElement } = render(
       WrapperProviderComp(
         mockDispatch,
         mockState
-      )(<ViewAll transitionStyles={transitionStyles} />)
+      )(
+        <ViewAll transitionStyles={transitionStyles}>
+          <NotePicker allNotes={[]} isLoading={false} />
+        </ViewAll>
+      )
     )
 
     const element = screen.getByText('All Notes')
-    const message = screen.getByText('No notes to show')
+    const message = await screen.findByText('No notes to show')
 
     expect(element).toBeInTheDocument()
 

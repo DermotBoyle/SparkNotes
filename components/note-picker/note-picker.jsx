@@ -9,11 +9,6 @@ import { Routes } from 'utils'
 
 import styles from 'styles/carousel-container.module.scss'
 
-const flickityOptions = {
-  pageDots: false,
-  initialIndex: 2
-}
-
 export const NotePicker = ({ allNotes, isLoading }) => {
   const { dispatch } = useAppContext()
   const router = useRouter()
@@ -44,7 +39,7 @@ export const NotePicker = ({ allNotes, isLoading }) => {
         />
       </Head>
       <div className={styles.carousel}>
-        {allNotes?.data.length ? (
+        {allNotes?.data?.length ? (
           allNotes?.data?.map(({ subject, content, _id, keywords = [] }) => (
             <div key={_id} className={styles.item}>
               <Image
@@ -59,7 +54,7 @@ export const NotePicker = ({ allNotes, isLoading }) => {
               <button onClick={() => deleteNote({ _id })}>DELETE</button>
             </div>
           ))
-        ) : isLoading ? (
+        ) : !!isLoading ? (
           <Image src='/loader.svg' width={50} height={50} />
         ) : (
           <h3>No notes to show</h3>
