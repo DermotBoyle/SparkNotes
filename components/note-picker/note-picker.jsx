@@ -14,7 +14,7 @@ const flickityOptions = {
   initialIndex: 2
 }
 
-export const NotePicker = ({ allNotes }) => {
+export const NotePicker = ({ allNotes, isLoading }) => {
   const { dispatch } = useAppContext()
   const router = useRouter()
 
@@ -45,22 +45,22 @@ export const NotePicker = ({ allNotes }) => {
       </Head>
       <div className={styles.carousel}>
         {allNotes?.data.length ? (
-          <div>
-            {allNotes.data.map(({ subject, content, _id, keywords = [] }) => (
-              <div key={_id} className={styles.item}>
-                <Image
-                  data-tip
-                  data-for='edit-button'
-                  src={edit}
-                  width={15}
-                  onClick={() => goToEdit({ subject, content, _id, keywords })}
-                />
-                <h5>{subject}</h5>
-                <p style={{ fontFamily: 'Satisfy' }}>{content}</p>
-                <button onClick={() => deleteNote({ _id })}>DELETE</button>
-              </div>
-            ))}
-          </div>
+          allNotes?.data?.map(({ subject, content, _id, keywords = [] }) => (
+            <div key={_id} className={styles.item}>
+              <Image
+                data-tip
+                data-for='edit-button'
+                src={edit}
+                width={15}
+                onClick={() => goToEdit({ subject, content, _id, keywords })}
+              />
+              <h5>{subject}</h5>
+              <p style={{ fontFamily: 'Satisfy' }}>{content}</p>
+              <button onClick={() => deleteNote({ _id })}>DELETE</button>
+            </div>
+          ))
+        ) : isLoading ? (
+          <Image src='/loader.svg' width={50} height={50} />
         ) : (
           <h3>No notes to show</h3>
         )}
