@@ -2,7 +2,8 @@
   min-height: 50vh;
   width: 100%;
   padding: 3rem;
-  .keywords-container {
+  .inputs-container {
+    margin-bottom: 1rem;
     div {
       display: flex;
       flex-direction: column;
@@ -12,6 +13,35 @@
       }
       label {
         padding: 0.2rem;
+      }
+    }
+
+    .keywords-input {
+      position: relative;
+      .keywords-saved {
+        position: absolute;
+        top: -0.8rem;
+        right: 22rem;
+        color: lightgray;
+      }
+    }
+
+    .keyword-chips-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 0.5rem;
+      p {
+        background-color: lightgray;
+        padding: 0.5rem;
+        width: fit-content;
+        border-radius: 12px;
+        position: relative;
+        margin-right: 1rem;
+      }
+
+      p:hover {
+        cursor: pointer;
       }
     }
   }

@@ -25,7 +25,6 @@ export const NotePicker = ({ allNotes, isLoading }) => {
     fetch('/api/note/' + _id, {
       method: 'DELETE'
     }).then(res => {
-      console.log(res)
       res.status === 201 && router.reload()
     })
   }
