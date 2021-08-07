@@ -16,13 +16,13 @@ export const ControlMenu = ({ currentURL }) => {
         </div>
       )}
       <ReactTooltip id='save-button' place='top' type='dark' effect='float'>
-        <p>Save the note</p>
-      </ReactTooltip>{' '}
+        Save the note
+      </ReactTooltip>
       <ReactTooltip id='edit-button' place='top' type='dark' effect='float'>
-        <p>Edit a note</p>
+        Edit a note
       </ReactTooltip>
       <ReactTooltip id='create-button' place='top' type='dark' effect='float'>
-        <p>Create a note</p>
+        Create a note
       </ReactTooltip>
     </>
   )

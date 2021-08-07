@@ -1,6 +1,6 @@
 import { SaveButton } from 'components/save-button'
 import { useReducer } from 'react'
-import { Router } from 'next/router'
+import Router from 'next/router'
 
 import styles from 'styles/create-note-form.module.scss'
 
