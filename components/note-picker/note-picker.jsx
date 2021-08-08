@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useAppContext } from 'context/global-state'
@@ -11,14 +11,23 @@ import styles from 'styles/carousel-container.module.scss'
 
 export const NotePicker = ({ allNotes, isLoading }) => {
   const { dispatch } = useAppContext()
-  const router = useRouter()
+  const { push, query } = useRouter()
+
+  const noteContainer = useRef()
+
+  useEffect(() => {
+    if (query.id && !!allNotes) {
+      const noteElement = document.getElementById(query.id)
+      noteElement.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [query])
 
   const goToEdit = note => {
     dispatch({
       type: 'update',
       payload: { currentNote: note, currentURL: 'edit-note' }
     })
-    router.push(`${Routes.BASE}${Routes.EDIT}`)
+    push(`${Routes.BASE}${Routes.EDIT}`)
   }
 
   const deleteNote = _id => {
@@ -37,10 +46,10 @@ export const NotePicker = ({ allNotes, isLoading }) => {
           rel='stylesheet'
         />
       </Head>
-      <div className={styles.carousel}>
+      <div className={styles.carousel} ref={noteContainer}>
         {allNotes?.data?.length ? (
           allNotes?.data?.map(({ subject, content, _id, keywords = [] }) => (
-            <div key={_id} className={styles.item}>
+            <div key={_id} id={_id} className={styles.item}>
               <Image
                 data-tip
                 data-for='edit-button'
