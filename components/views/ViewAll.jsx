@@ -1,5 +1,4 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NotePicker } from 'components/note-picker'
 import { fetcher } from 'utils'
 
@@ -12,13 +11,21 @@ export const ViewAll = ({
   defaultStyle,
   transitionState
 }) => {
-  const { data: data } = useSWR('/api/note/', fetcher)
+  const { data } = useSWR('/api/note/', fetcher)
+
+  const [isLoading, setIsLoading] = useState(true)
 
   const [on, setOn] = useState('entering')
 
   useEffect(() => {
     setOn(transitionState)
   }, [])
+
+  useEffect(() => {
+    if (data) {
+      setIsLoading(false)
+    }
+  }, [data])
 
   return (
     <section
@@ -29,7 +36,7 @@ export const ViewAll = ({
       }}
     >
       <p>All Notes</p>
-      <NotePicker allNotes={data} />
+      <NotePicker allNotes={data} isLoading={isLoading} />
     </section>
   )
 }

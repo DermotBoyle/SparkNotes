@@ -7,14 +7,14 @@ const NoteSchema = new Schema({
   created: {
     type: Date,
     required: false,
-    default: () => moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]')
+    default: () => moment.utc().format()
   },
   subject: {
     type: String,
     required: true
   },
   keywords: {
-    type: String,
+    type: [String],
     required: false
   },
   content: {
@@ -24,7 +24,7 @@ const NoteSchema = new Schema({
   updated: {
     type: Date,
     required: false,
-    default: () => moment(new Date()).format('YYYY-MM-DD[T00:00:00.000Z]')
+    default: () => moment.utc().format()
   }
 })
 

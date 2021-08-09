@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import styles from 'styles/control-container.module.scss'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import { Routes } from 'utils'
 import add from 'public/add.svg'
 import Link from 'next/link'
 
-const ReactTooltip = dynamic(() => import('react-tooltip'), {
-  ssr: false
-})
+// const ReactTooltip = dynamic(() => import('react-tooltip'), {
+//   ssr: false
+// })
 
 export const CreateButton = ({ currentURL }) => {
   const isEditMode = () =>
@@ -28,15 +28,6 @@ export const CreateButton = ({ currentURL }) => {
               <Image src={add} alt='plus symbol' width={72} height={16}></Image>
             </button>
           </Link>
-
-          <ReactTooltip
-            id='create-button'
-            place='top'
-            type='dark'
-            effect='float'
-          >
-            <p>Create a note</p>
-          </ReactTooltip>
         </>
       )}
     </>

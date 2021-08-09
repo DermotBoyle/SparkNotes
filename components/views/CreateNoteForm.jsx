@@ -1,12 +1,13 @@
 import { SaveButton } from 'components/save-button'
 import { useReducer } from 'react'
-import router from 'next/router'
+import Router from 'next/router'
 
 import styles from 'styles/create-note-form.module.scss'
 
 import moment from 'moment'
 
 import { Routes } from 'utils'
+import { uuid } from 'uuidv4'
 
 export const CreateNoteForm = ({
   transitionStyles,
@@ -15,9 +16,10 @@ export const CreateNoteForm = ({
 }) => {
   const initialFormValues = {
     subject: '',
-    keywords: '',
+    keywords: [],
     content: '',
-    date: ''
+    date: '',
+    currentKeyword: ''
   }
 
   const [formValues, setFormValues] = useReducer(
@@ -25,16 +27,27 @@ export const CreateNoteForm = ({
     initialFormValues
   )
 
-  const { subject, keywords, content } = formValues
+  const { subject, keywords, content, currentKeyword } = formValues
 
   const handleFormChange = ({ target }) => {
     const { name, value } = target
     setFormValues({ [name]: value })
   }
 
+  const formatKeywords = ({ keyCode, target: { value } }) => {
+    if (keyCode === 32 || keyCode === 13) {
+      setFormValues({ keywords: [...keywords, value], currentKeyword: '' })
+    }
+  }
+
   const handleSaveClick = async () => {
     formValues.date = moment.utc().format()
     updateDB(formValues)
+  }
+
+  const handleRemoveKeyword = value => {
+    const updatedKeywords = formValues.keywords.filter(word => word !== value)
+    setFormValues({ keywords: updatedKeywords })
   }
 
   const updateDB = async formValues => {
@@ -48,7 +61,7 @@ export const CreateNoteForm = ({
       }).then(res => {
         if (res.status === 201) {
           setFormValues(initialFormValues)
-          router.push(Routes.BASE + Routes.VIEW_ALL)
+          Router.push(Routes.BASE + Routes.VIEW_ALL)
         }
       })
     } catch (error) {
@@ -65,8 +78,8 @@ export const CreateNoteForm = ({
       }}
     >
       <form>
-        <div className={styles['keywords-container']}>
-          <div>
+        <div className={styles['inputs-container']}>
+          <div className={styles['subject-input']}>
             <label>Subject</label>
             <input
               type='text'
@@ -75,14 +88,26 @@ export const CreateNoteForm = ({
               onChange={handleFormChange}
             />
           </div>
-          <div>
+          <div className={styles['keywords-input']}>
             <label>Keywords</label>
+            <p className={styles['keywords-saved']}>{keywords?.length}/ 5</p>
             <input
+              disabled={keywords?.length === 5}
               type='text'
-              name='keywords'
-              value={keywords}
+              name='currentKeyword'
+              value={currentKeyword}
               onChange={handleFormChange}
+              onKeyDown={formatKeywords}
             />
+            <div className={styles['keyword-chips-container']}>
+              {!!keywords?.length
+                ? keywords?.map(word => (
+                    <p onClick={() => handleRemoveKeyword(word)} key={uuid}>
+                      {word} X
+                    </p>
+                  ))
+                : null}
+            </div>
           </div>
         </div>
         <div className={styles['main-note']}>
