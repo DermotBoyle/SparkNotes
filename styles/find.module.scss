@@ -3,5 +3,33 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding-top: 8rem;
+
+  input {
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    width: 12rem;
+    height: 2rem;
+  }
+
+  button {
+    height: 2rem;
+    width: 3rem;
+    img {
+      margin-top: 4px;
+    }
+  }
+
+  li {
+    p:hover {
+      cursor: pointer;
+      background-color: lightgray;
+    }
+  }
+
+  .input-container {
+    display: flex;
+    align-items: flex-end;
+    width: 18rem;
+  }
 }

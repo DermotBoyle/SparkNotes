@@ -52,9 +52,11 @@ export const About = ({ transitionStyles, defaultStyle, transitionState }) => {
       <p>
         The payload response given for a single note looks fine to me. Outside
         of the id, data and necessary content nothing else is really needed.
-        <br />
-        <pre>{JSON.stringify(payload, null, 2)}</pre>
-        <br />
+      </p>
+      <br />
+      <pre>{JSON.stringify(payload, null, 2)}</pre>
+      <br />
+      <p>
         As the app became more complex info such as, hasBeenUpdated or by whom
         was it created/updated by would be a useful addition. So the only
         difference apart from having the response returned in an array for

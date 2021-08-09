@@ -11,7 +11,7 @@ import styles from 'styles/carousel-container.module.scss'
 
 export const NotePicker = ({ allNotes, isLoading }) => {
   const { dispatch } = useAppContext()
-  const { push, query } = useRouter()
+  const { push, query, reload } = useRouter()
 
   const noteContainer = useRef()
 
@@ -34,7 +34,7 @@ export const NotePicker = ({ allNotes, isLoading }) => {
     fetch('/api/note/' + _id, {
       method: 'DELETE'
     }).then(res => {
-      res.status === 201 && router.reload()
+      res.status === 201 && reload()
     })
   }
 
