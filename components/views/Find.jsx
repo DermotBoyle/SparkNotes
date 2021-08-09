@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Methods } from 'utils'
 import { useRouter } from 'next/router'
 import moment from 'moment'
+import Image from 'next/image'
 
 import { Routes } from 'utils'
 
@@ -47,12 +48,22 @@ export const Find = ({ transitionStyles, defaultStyle, transitionState }) => {
         ...transitionStyles[on]
       }}
     >
-      <p>Find by keyword</p>
-      <input
-        type='text'
-        placeholder='Search for a keyword...'
-        onChange={handleChange}
-      />
+      <label>Find by keyword</label>
+      <span className={style['input-container']}>
+        <input
+          type='text'
+          placeholder='Search for a keyword...'
+          onChange={handleChange}
+        />
+        <button name=''>
+          <Image
+            alt='search icon'
+            height={18}
+            width={18}
+            src='/loupe.png'
+          ></Image>
+        </button>
+      </span>
       <ul>
         {!!fetchResults
           ? fetchResults.map(({ subject, updated, _id }) => (

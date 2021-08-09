@@ -2,6 +2,11 @@
   min-height: 50vh;
   width: 100%;
   padding: 3rem;
+
+  form {
+    width: 75%;
+  }
+
   .inputs-container {
     margin-bottom: 1rem;
     div {
@@ -21,7 +26,7 @@
       .keywords-saved {
         position: absolute;
         top: -0.8rem;
-        right: 22rem;
+        left: 6rem;
         color: lightgray;
       }
     }
@@ -46,6 +51,10 @@
     }
   }
 
+  .inputs-container > div {
+    margin-top: 1rem;
+  }
+
   .main-note {
     display: flex;
     flex-direction: column;
@@ -55,6 +64,7 @@
     textarea {
       height: 12rem;
       width: 70%;
+      padding: 0.8rem;
     }
   }
 }

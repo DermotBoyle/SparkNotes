@@ -7,7 +7,7 @@ import styles from 'styles/create-note-form.module.scss'
 import moment from 'moment'
 
 import { Routes } from 'utils'
-import { uuid } from 'uuidv4'
+import { v4 as uuidv4 } from 'uuid'
 
 export const CreateNoteForm = ({
   transitionStyles,
@@ -102,7 +102,7 @@ export const CreateNoteForm = ({
             <div className={styles['keyword-chips-container']}>
               {!!keywords?.length
                 ? keywords?.map(word => (
-                    <p onClick={() => handleRemoveKeyword(word)} key={uuid}>
+                    <p onClick={() => handleRemoveKeyword(word)} key={uuidv4()}>
                       {word} X
                     </p>
                   ))
