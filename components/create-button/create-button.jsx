@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import styles from 'styles/control-container.module.scss'
 // import dynamic from 'next/dynamic'
@@ -18,7 +18,7 @@ export const CreateButton = ({ currentURL }) => {
     <>
       {!isEditMode() && (
         <>
-          <Link href={`${Routes.BASE}${Routes.CREATE}`}>
+          <Link href={`${Routes.BASE}${Routes.CREATE}`} passHref>
             <button
               className={styles['create-button']}
               aria-label='create new note'

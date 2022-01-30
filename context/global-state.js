@@ -1,12 +1,14 @@
 import { createContext, useContext, useReducer } from 'react'
-import { urlReducer } from './app-reducer'
+
+import { appReducer } from './app-reducer'
 
 export const AppContext = createContext()
 
 export function AppWrapper ({ children }) {
-  const [state, dispatch] = useReducer(urlReducer, {
+  const [state, dispatch] = useReducer(appReducer, {
     currentURL: '/home',
-    currentNote: ''
+    currentNote: '',
+    savedNotes:[]
   })
 
   const value = { state, dispatch }

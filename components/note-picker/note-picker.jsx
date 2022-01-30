@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useAppContext } from 'context/global-state'
@@ -13,14 +13,12 @@ export const NotePicker = ({ allNotes, isLoading }) => {
   const { dispatch } = useAppContext()
   const { push, query, reload } = useRouter()
 
-  const noteContainer = useRef()
-
   useEffect(() => {
-    if (query.id && !!allNotes) {
+    if (query.id && !!allNotes.length) {
       const noteElement = document.getElementById(query.id)
       noteElement.scrollIntoView({ behavior: 'smooth' })
     }
-  }, [query])
+  }, [query, allNotes])
 
   const goToEdit = note => {
     dispatch({
@@ -30,11 +28,18 @@ export const NotePicker = ({ allNotes, isLoading }) => {
     push(`${Routes.BASE}${Routes.EDIT}`)
   }
 
-  const deleteNote = _id => {
-    fetch('/api/note/' + _id, {
-      method: 'DELETE'
-    }).then(res => {
-      res.status === 201 && reload()
+  /*const deleteNote = _id => {
+  fetch('/api/note/' + _id, {
+    method: 'DELETE'
+  }).then(res => {
+    res.status === 201 && reload()
+  })
+  }*/
+
+  const deleteNote = note => {
+    dispatch({
+      type: 'deleteAtId',
+      payload: { currentNote: note }
     })
   }
 
@@ -46,11 +51,12 @@ export const NotePicker = ({ allNotes, isLoading }) => {
           rel='stylesheet'
         />
       </Head>
-      <div className={styles.carousel} ref={noteContainer}>
-        {allNotes?.data?.length ? (
-          allNotes?.data?.map(({ subject, content, _id, keywords = [] }) => (
+      <div className={styles.carousel} >
+        {allNotes?.length ? (
+          allNotes?.map(({ subject, content, _id, keywords = [] }) => (
             <div key={_id} id={_id} className={styles.item}>
               <Image
+                alt="The edit note button"
                 data-tip
                 data-for='edit-button'
                 src={edit}
@@ -62,8 +68,8 @@ export const NotePicker = ({ allNotes, isLoading }) => {
               <button onClick={() => deleteNote({ _id })}>DELETE</button>
             </div>
           ))
-        ) : !!isLoading ? (
-          <Image src='/loader.svg' width={50} height={50} />
+        ) : isLoading ? (
+          <Image alt="Page loader" src='/loader.svg' width={50} height={50} />
         ) : (
           <h3>No notes to show</h3>
         )}

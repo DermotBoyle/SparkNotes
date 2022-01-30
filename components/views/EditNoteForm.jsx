@@ -21,7 +21,8 @@ export const EditNoteForm = ({
       keywords: initialKeywords,
       content: initialContent,
       _id
-    }
+    },
+    dispatch
   } = useAppContext()
 
   const [formValues, setFormValues] = useReducer(
@@ -58,7 +59,7 @@ export const EditNoteForm = ({
     setFormValues({ keywords: updatedKeywords })
   }
 
-  const updateDB = async formValues => {
+  /* const updateDB = async formValues => {
     try {
       await fetch(`api/note/${formValues._id}`, {
         method: Methods.PUT,
@@ -72,6 +73,14 @@ export const EditNoteForm = ({
     } catch (error) {
       alert(error)
     }
+  }*/
+
+  const updateDB = ( formValues ) => {
+    dispatch({
+      type: 'updateAtId',
+      payload: {currentNote: formValues}
+    })
+    Router.push(Routes.BASE + Routes.VIEW_ALL)
   }
 
   return (
@@ -105,7 +114,7 @@ export const EditNoteForm = ({
               onKeyDown={formatKeywords}
             />
             <div className={styles['keyword-chips-container']}>
-              {!!formValues.keywords?.length
+              {!!formValues?.keywords?.length
                 ? keywords?.map(word => (
                     <p onClick={() => handleRemoveKeyword(word)} key={uuidv4()}>
                       {word} X

@@ -6,11 +6,15 @@ import moment from 'moment'
 import Image from 'next/image'
 
 import { Routes } from 'utils'
+import { useAppContext } from 'context/global-state'
+
 
 import style from 'styles/find.module.scss'
 
 export const Find = ({ transitionStyles, defaultStyle, transitionState }) => {
   const router = useRouter()
+  const { state } = useAppContext()
+
   const [on, setOn] = useState('entering')
   const [fetchResults, setFetchResults] = useState([])
 
@@ -20,7 +24,7 @@ export const Find = ({ transitionStyles, defaultStyle, transitionState }) => {
 
   const handleChange = ({ target: { value } }) => {
     if (value.length >= 2) {
-      try {
+     /* try {
         fetch(`api/note/keyword/${value}`, {
           method: Methods.GET,
           headers: {
@@ -33,13 +37,17 @@ export const Find = ({ transitionStyles, defaultStyle, transitionState }) => {
           })
       } catch (error) {
         alert(error)
-      }
+      }*/
+      const matches = state.savedNotes.filter((note) => note.keywords.indexOf(value) !== -1 && note)
+      setFetchResults(matches)
     }
   }
 
   const goToNote = id => {
     router.push(Routes.BASE + Routes.VIEW_ALL + `&id=${id}`)
   }
+
+
   return (
     <section
       className={style.find}

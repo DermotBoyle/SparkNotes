@@ -1,6 +1,7 @@
 import { SaveButton } from 'components/save-button'
 import { useReducer } from 'react'
 import Router from 'next/router'
+import { useAppContext } from 'context/global-state'
 
 import styles from 'styles/create-note-form.module.scss'
 
@@ -21,6 +22,8 @@ export const CreateNoteForm = ({
     date: '',
     currentKeyword: ''
   }
+
+  const { dispatch } = useAppContext()
 
   const [formValues, setFormValues] = useReducer(
     (curVals, newVals) => ({ ...curVals, ...newVals }),
@@ -45,12 +48,18 @@ export const CreateNoteForm = ({
     updateDB(formValues)
   }
 
-  const handleRemoveKeyword = value => {
+  const handleRemoveKeyword = (value) => {
     const updatedKeywords = formValues.keywords.filter(word => word !== value)
     setFormValues({ keywords: updatedKeywords })
   }
 
-  const updateDB = async formValues => {
+  const addUniqueId = (formValues) => {
+    formValues._id = uuidv4()
+    return formValues
+  }
+
+
+  /*const updateDB = async formValues => {
     try {
       await fetch('api/note', {
         method: 'POST',
@@ -67,6 +76,17 @@ export const CreateNoteForm = ({
     } catch (error) {
       console.error(error)
     }
+  }*/
+
+  const updateDB = (formValues) => {
+
+    const newNote = addUniqueId(formValues)
+
+    dispatch({
+      type: 'save',
+      payload: { newNote }
+    })
+    Router.push(Routes.BASE + Routes.VIEW_ALL)
   }
 
   return (
