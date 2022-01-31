@@ -1,16 +1,11 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { useRef } from 'react'
 
 import style from 'styles/solution.module.scss'
 
-export const About = ({ transitionStyles, defaultStyle, transitionState }) => {
-  const [on, setOn] = useState('entering')
+export const About = () => {
 
-  useEffect(() => {
-    setOn(transitionState)
-  }, [])
-
-  const payload = {
+   const payload = {
     id: '123abc',
     date: 'datetime',
     content: 'some content here'
@@ -31,8 +26,7 @@ export const About = ({ transitionStyles, defaultStyle, transitionState }) => {
     <section
       className={style.solution}
       style={{
-        ...defaultStyle,
-        ...transitionStyles[on]
+        opactiy: 0
       }}
     >
       <h3> --About the solution -- </h3>

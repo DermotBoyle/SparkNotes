@@ -1,16 +1,65 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { AppWrapper } from 'context/global-state'
+import MainComponent from 'pages/home/index.js'
+import { AppContext } from 'context/global-state'
 
-const AllTheProviders = ({ children }) => {
-  return <AppWrapper>{children}</AppWrapper>
+const WrapperProviderMain = (mockDispatch, mockState) => {
+  return (
+    <AppContext.Provider
+      value={{
+        dispatch: mockDispatch,
+        state: mockState
+      }}
+    >
+      <MainComponent />
+    </AppContext.Provider>
+  )
 }
 
-const customRender = (ui, options) =>
-  render(ui, { wrapper: AllTheProviders, ...options })
+const WrapperProviderComp = (mockDispatch, mockState) => {
+  function WrappedComponent (component) {
+    return (
+      <AppContext.Provider
+        value={{
+          dispatch: mockDispatch,
+          state: mockState
+        }}
+      >
+        {component}
+      </AppContext.Provider>
+    )
+  }
+  return WrappedComponent
+}
 
-// re-export everything
-export * from '@testing-library/react'
+const constantDate = new Date('2017-06-13T04:41:20')
+
+const allNotes = [
+  {
+    _id: 1,
+    subject: 'testSubject',
+    content: 'content',
+    keywords: 'keywords',
+    created: constantDate,
+    updated: constantDate
+
+  },
+  {
+    _id: 2,
+    subject: 'testSubject',
+    content: 'content',
+    keywords: 'keywords',
+    created: constantDate,
+    updated: constantDate
+  },
+  {
+    _id: 3,
+    subject: 'testSubject',
+    content: 'content',
+    keywords: 'mock',
+    created: constantDate,
+    updated: constantDate
+  }
+]
 
 // override render method
-export { customRender as wrapper }
+export { WrapperProviderComp, WrapperProviderMain, allNotes }

@@ -42,7 +42,7 @@ export const NotePicker = ({ allNotes, isLoading }) => {
       payload: { currentNote: note }
     })
   }
-
+  
   return (
     <>
       <Head>
@@ -52,7 +52,7 @@ export const NotePicker = ({ allNotes, isLoading }) => {
         />
       </Head>
       <div className={styles.carousel} >
-        {allNotes?.length ? (
+        {!!allNotes?.length ? (
           allNotes?.map(({ subject, content, _id, keywords = [] }) => (
             <div key={_id} id={_id} className={styles.item}>
               <Image

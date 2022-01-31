@@ -9,7 +9,6 @@ export default async function handler (req, res) {
   if (req.method === 'GET') {
     try {
       const notesWithMatch = await Note.find({ keywords: word })
-      console.log(notesWithMatch)
       res.status(201).json({ success: true, data: notesWithMatch })
     } catch (error) {
       res.status(400).json({ success: false, error: error })

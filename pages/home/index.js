@@ -22,15 +22,17 @@ export default function MainComponent () {
         type: query.section === '/' ? 'reset' : 'update',
         payload: { currentURL: query.section }
       })
-  }, [query])
+  }, [query, dispatch])
 
   return (
-    <div className={styles.container} data-testid='side-menu'>
+    <>
       <Head>
-        <title>Spark Notes</title>
-        <meta name='Code test for Sparks' />
+        <title>Weaver TestAPP</title>
+        <meta name='Code Interview' />
       </Head>
 
+      <div className={styles.container} data-testid='side-menu'>
+  
       <ControlContainer currentURL={currentURL}>
         <ControlMenu currentURL={currentURL} />
         <SideMenu currentURL={currentURL} />
@@ -50,5 +52,6 @@ export default function MainComponent () {
         </div>
       </footer>
     </div>
+    </>
   )
 }

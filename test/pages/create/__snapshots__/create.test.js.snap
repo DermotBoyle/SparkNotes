@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CreateNoteForm/> should call the dispatch fn 1`] = `
+<body>
+  <div>
+    <section
+      class="form-container"
+    >
+      <form>
+        <div
+          class="inputs-container"
+        >
+          <div
+            class="subject-input"
+          >
+            <label>
+              Subject
+            </label>
+            <input
+              name="subject"
+              type="text"
+              value="TEST SUBJECT"
+            />
+          </div>
+          <div
+            class="keywords-input"
+          >
+            <label>
+              Keywords
+            </label>
+            <p
+              class="keywords-saved"
+            >
+              0
+              / 5
+            </p>
+            <input
+              name="currentKeyword"
+              type="text"
+              value="TEST KEYWORD"
+            />
+            <div
+              class="keyword-chips-container"
+            />
+          </div>
+        </div>
+        <div
+          class="main-note"
+        >
+          <label>
+            Write your note here
+          </label>
+          <textarea
+            name="content"
+            type="text"
+          >
+            TEST CONTENT
+          </textarea>
+        </div>
+      </form>
+      <button
+        aria-label="save new note"
+        class="save-button"
+        data-for="save-button"
+        data-tip="true"
+      >
+        <img
+          alt="tick symbol"
+          src="[object Object]"
+        />
+      </button>
+    </section>
+  </div>
+</body>
+`;

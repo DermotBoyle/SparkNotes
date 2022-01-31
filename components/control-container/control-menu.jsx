@@ -12,7 +12,7 @@ export const ControlMenu = ({ currentURL }) => {
     <>
       {!!currentURL && (
         <div className={styles['main-view']}>
-          {transitionManager('entered')({ currentURL })}
+          {transitionManager()({ currentURL })}
         </div>
       )}
       <ReactTooltip id='save-button' place='top' type='dark' effect='float'>

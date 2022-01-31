@@ -2,10 +2,10 @@ module.exports = {
   collectCoverageFrom: [
     '**/*.{js,jsx,ts,tsx}',
     '!**/*.d.ts',
-    '!**/node_modules/**'
+    '!**/node_modules/**',
   ],
-  coveragePathIgnorePatterns: ['/node_modules/'],
-  testPathIgnorePatterns: ['/node_modules/', '/.next/'],
+  coveragePathIgnorePatterns: ['/node_modules/','/middleware/', '/.next/'],
+  testPathIgnorePatterns: ['/node_modules/', '/.next/', '/hot-update/'],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
     '^.+\\.svg$': '<rootDir>/svgTransform.js'

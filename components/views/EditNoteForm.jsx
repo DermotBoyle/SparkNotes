@@ -10,11 +10,7 @@ import { Routes, Methods } from 'utils'
 import moment from 'moment'
 import { v4 as uuidv4 } from 'uuid'
 
-export const EditNoteForm = ({
-  transitionStyles,
-  defaultStyle,
-  transitionState
-}) => {
+export const EditNoteForm = () => {
   const {
     state: {
       subject: initialSubject,
@@ -86,10 +82,6 @@ export const EditNoteForm = ({
   return (
     <section
       className={styles['form-container']}
-      style={{
-        ...defaultStyle,
-        ...transitionStyles[transitionState]
-      }}
     >
       <form>
         <div className={styles['inputs-container']}>

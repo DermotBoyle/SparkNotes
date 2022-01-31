@@ -9,49 +9,25 @@ import {
 } from 'components/views'
 import { Routes } from 'utils'
 
-export const transitionManager = transitionState => {
+export const transitionManager = () => {
   const View = {
     [Routes.HOME]: (
-      <Home
-        transitionState={transitionState}
-        defaultStyle={defaultStyle}
-        transitionStyles={transitionStyles}
-      />
+      <Home/>
     ),
     [Routes.VIEW_ALL]: (
-      <ViewAll
-        transitionState={transitionState}
-        defaultStyle={defaultStyle}
-        transitionStyles={transitionStyles}
-      />
+      <ViewAll />
     ),
     [Routes.FIND]: (
-      <Find
-        transitionState={transitionState}
-        defaultStyle={defaultStyle}
-        transitionStyles={transitionStyles}
-      />
+      <Find/>
     ),
     [Routes.ABOUT]: (
-      <About
-        transitionState={transitionState}
-        defaultStyle={defaultStyle}
-        transitionStyles={transitionStyles}
-      />
+      <About/>
     ),
     [Routes.CREATE]: (
-      <CreateNoteForm
-        transitionState={transitionState}
-        defaultStyle={defaultStyle}
-        transitionStyles={transitionStyles}
-      />
+      <CreateNoteForm/>
     ),
     [Routes.EDIT]: (
-      <EditNoteForm
-        transitionState={transitionState}
-        defaultStyle={defaultStyle}
-        transitionStyles={transitionStyles}
-      />
+      <EditNoteForm/>
     )
   }
 
@@ -60,12 +36,3 @@ export const transitionManager = transitionState => {
   }
 }
 
-export const defaultStyle = {
-  transition: `opacity 800ms ease-out`,
-  opacity: 0
-}
-
-export const transitionStyles = {
-  entered: { opacity: 1 },
-  exiting: { opacity: 0 }
-}

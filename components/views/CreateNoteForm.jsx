@@ -1,3 +1,4 @@
+import React from 'react'
 import { SaveButton } from 'components/save-button'
 import { useReducer } from 'react'
 import Router from 'next/router'
@@ -10,11 +11,7 @@ import moment from 'moment'
 import { Routes } from 'utils'
 import { v4 as uuidv4 } from 'uuid'
 
-export const CreateNoteForm = ({
-  transitionStyles,
-  defaultStyle,
-  transitionState
-}) => {
+export const CreateNoteForm = () => {
   const initialFormValues = {
     subject: '',
     keywords: [],
@@ -79,9 +76,7 @@ export const CreateNoteForm = ({
   }*/
 
   const updateDB = (formValues) => {
-
     const newNote = addUniqueId(formValues)
-
     dispatch({
       type: 'save',
       payload: { newNote }
@@ -92,10 +87,6 @@ export const CreateNoteForm = ({
   return (
     <section
       className={styles['form-container']}
-      style={{
-        ...defaultStyle,
-        ...transitionStyles[transitionState]
-      }}
     >
       <form>
         <div className={styles['inputs-container']}>

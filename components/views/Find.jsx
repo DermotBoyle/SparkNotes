@@ -1,5 +1,5 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
+import React, {useRef} from 'react'
+import { useState } from 'react'
 import { Methods } from 'utils'
 import { useRouter } from 'next/router'
 import moment from 'moment'
@@ -7,20 +7,14 @@ import Image from 'next/image'
 
 import { Routes } from 'utils'
 import { useAppContext } from 'context/global-state'
-
-
 import style from 'styles/find.module.scss'
+import { useAnimation } from './useAnimation'
 
-export const Find = ({ transitionStyles, defaultStyle, transitionState }) => {
+export const Find = () => {
   const router = useRouter()
   const { state } = useAppContext()
-
-  const [on, setOn] = useState('entering')
   const [fetchResults, setFetchResults] = useState([])
-
-  useEffect(() => {
-    setOn(transitionState)
-  }, [])
+  const containerRef = useRef(null)
 
   const handleChange = ({ target: { value } }) => {
     if (value.length >= 2) {
@@ -51,19 +45,16 @@ export const Find = ({ transitionStyles, defaultStyle, transitionState }) => {
   return (
     <section
       className={style.find}
-      style={{
-        ...defaultStyle,
-        ...transitionStyles[on]
-      }}
+      ref={containerRef}
     >
       <label>Find by keyword</label>
-      <span className={style['input-container']}>
+      <span className={style['input-container']} data-testid="find-component">
         <input
-          type='text'
+          type='search'
           placeholder='Search for a keyword...'
           onChange={handleChange}
         />
-        <button name=''>
+        <button name='' role="button">
           <Image
             alt='search icon'
             height={18}
@@ -73,9 +64,9 @@ export const Find = ({ transitionStyles, defaultStyle, transitionState }) => {
         </button>
       </span>
       <ul>
-        {!!fetchResults
+        {!!fetchResults.length
           ? fetchResults.map(({ subject, updated, _id }) => (
-              <li key={_id} onClick={() => goToNote(_id)}>
+              <li key={_id} onClick={() => goToNote(_id)} data-testid="list-item">
                 {
                   <p>{`Note: ${subject} - ${moment
                     .utc(updated)
