@@ -8,7 +8,6 @@ import Image from 'next/image'
 import { Routes } from 'utils'
 import { useAppContext } from 'context/global-state'
 import style from 'styles/find.module.scss'
-import { useAnimation } from './useAnimation'
 
 export const Find = () => {
   const router = useRouter()

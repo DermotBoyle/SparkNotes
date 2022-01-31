@@ -14,6 +14,7 @@ export default function MainComponent () {
     state: { currentURL },
     dispatch
   } = useAppContext()
+
   const { query } = useRouter()
 
   useEffect(() => {

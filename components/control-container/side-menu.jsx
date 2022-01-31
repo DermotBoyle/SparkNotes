@@ -19,7 +19,7 @@ export const SideMenu = ({ currentURL }) => {
             }
           >
             <Link
-              href={path !== Routes.HOME ? `${Routes.BASE}${path}` : '/home'}
+              href={path !== Routes.HOME ? `${Routes.BASE}${path}` : Routes.HOME}
               shallow={true}
             >
               <a>{item}</a>
