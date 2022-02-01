@@ -1,4 +1,4 @@
-## A todo/Notes app in NextJs/MongoDB
+## A todo/Notes app in NextJs -- (MongoDB no longer connected)
 
 Run the development server:
 
